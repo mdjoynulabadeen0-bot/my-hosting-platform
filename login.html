@@ -2,224 +2,40 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login - My Hosting Platform</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             font-family: Arial, sans-serif;
             background: #0f172a;
             color: white;
-
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            min-height: 100vh;
         }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 420px;
-
             background: #1e293b;
-
             padding: 35px;
-
             border-radius: 15px;
-
-            box-shadow:
-                0 0 25px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
         }
 
         h1 {
             text-align: center;
             color: #38bdf8;
-
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #cbd5e1;
-
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-
-            margin-top: 15px;
-            margin-bottom: 7px;
-
-            color: #e2e8f0;
-        }
-
-        input {
-            width: 100%;
-
-            padding: 13px;
-
-            border: none;
-            border-radius: 8px;
-
-            background: #334155;
-            color: white;
-
-            font-size: 15px;
-        }
-
-        input:focus {
-            outline: 2px solid #38bdf8;
-        }
-
-        button {
-            width: 100%;
-
-            padding: 14px;
-
-            margin-top: 25px;
-
-            border: none;
-            border-radius: 8px;
-
-            background: #38bdf8;
-            color: #0f172a;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0ea5e9;
-        }
-
-        .register {
-            text-align: center;
-
-            margin-top: 22px;
-
-            color: #cbd5e1;
-        }
-
-        .register a {
-            color: #38bdf8;
-
-            text-decoration: none;
-        }
-
-        .back {
-            display: block;
-
-            text-align: center;
-
-            margin-top: 20px;
-
-            color: #94a3b8;
-
-            text-decoration: none;
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-    <div class="container">
-
-        <h1>My Hosting Platform</h1>
-
-        <p class="subtitle">
-            Login to your hosting account
-        </p>
-
-        <form onsubmit="loginUser(event)">
-
-            <label for="email">
-                Email Address
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
-
-            <label for="password">
-                Password
-            </label>
-
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            >
-
-            <button type="submit">
-                Login
-            </button>
-
-        </form>
-
-        <div class="register">
-
-            Don't have an account?
-
-            <a href="#" onclick="createAccount(event)">
-                Create Account
-            </a>
-
-        </div>
-
-        <a class="back" href="index.html">
-            ← Back to Home
-        </a>
-
-    </div>
-
-    <script>
-
-        function loginUser(event) {
-
-            event.preventDefault();
-
-            // Dashboard পেজে নিয়ে যাবে
-            window.location.href = "dashboard.html";
-
-        }
-
-        function createAccount(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Registration system will be added in the next step."
-            );
-
-        }
-
-    </script>
-
-</body>
-
-</html>            color: #38bdf8;
             margin-bottom: 10px;
         }
 
@@ -267,23 +83,19 @@
             background: #0ea5e9;
         }
 
-        .register {
-            text-align: center;
-            margin-top: 22px;
-            color: #cbd5e1;
-        }
-
-        .register a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
         .back {
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: #94a3b8;
+            color: #38bdf8;
             text-decoration: none;
+        }
+
+        .note {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -324,16 +136,13 @@
 
         </form>
 
-        <div class="register">
-            Don't have an account?
-            <a href="#" onclick="createAccount(event)">
-                Create Account
-            </a>
-        </div>
-
-        <a class="back" href="index.html">
+        <a href="index.html" class="back">
             ← Back to Home
         </a>
+
+        <p class="note">
+            Demo login page — real account system coming soon.
+        </p>
 
     </div>
 
@@ -341,19 +150,15 @@
         function loginUser(event) {
             event.preventDefault();
 
-            alert(
-                "Login system is not connected yet. Backend setup is required."
-            );
-        }
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-        function createAccount(event) {
-            event.preventDefault();
-
-            alert(
-                "Registration system will be added in the next step."
-            );
+            if (email && password) {
+                window.location.href = "dashboard.html";
+            }
         }
     </script>
 
 </body>
+
 </html>
